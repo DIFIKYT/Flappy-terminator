@@ -29,6 +29,11 @@ public class Player : MonoBehaviour
         _playerInput.JumpKeyPressed -= Jump;
     }
 
+    private void IdentifyCollision()
+    {
+
+    }
+
     private void Jump()
     {
         _playerMover.ChangeRotation();
