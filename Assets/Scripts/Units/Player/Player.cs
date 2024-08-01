@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
     private void IdentifyCollision(Interactable interactable)
     {
-        if(interactable is PlayerBullet)
+        if (interactable is PlayerBullet)
             return;
 
         GameOver?.Invoke();
@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
         _playerMover.ChangeRotation();
     }
 
-        public void Reset()
+    public void Reset()
     {
         _playerMover.Reset();
     }

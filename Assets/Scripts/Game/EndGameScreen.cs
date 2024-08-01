@@ -5,17 +5,22 @@ public class EndGameScreen : Window
 {
     public event Action RestartButtonClicked;
 
+    private void Awake()
+    {
+        Open();
+    }
+
     public override void Close()
     {
         Debug.Log("EndGame Close");
-        WindowGroup.alpha = 0f;
+        gameObject.SetActive(false);
         ActionButton.interactable = false;
     }
 
     public override void Open()
     {
         Debug.Log("EndGame Open");
-        WindowGroup.alpha = 1f;
+        gameObject.SetActive(true);
         ActionButton.interactable = true;
     }
 

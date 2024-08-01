@@ -5,17 +5,22 @@ public class StartScreen : Window
 {
     public event Action PlayButtonClicked;
 
+    private void Awake()
+    {
+        Open();
+    }
+
     public override void Close()
     {
         Debug.Log("StartGame Close");
-        WindowGroup.alpha = 0f;
+        gameObject.SetActive(false);
         ActionButton.interactable = false;
     }
 
     public override void Open()
     {
         Debug.Log("StartGame Open");
-        WindowGroup.alpha = 1f;
+        gameObject.SetActive(true);
         ActionButton.interactable = true;
     }
 

@@ -77,4 +77,15 @@ public class EnemySpawner : MonoBehaviour
             yield return spawnDelay;
         }
     }
+
+    public void Reset()
+    {
+        if (_pool != null)
+        {
+            _pool.Clear();
+
+            foreach (Enemy enemy in FindObjectsOfType<Enemy>())
+                OnDestroyEnemy(enemy);
+        }
+    }
 }

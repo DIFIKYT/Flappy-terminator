@@ -49,5 +49,6 @@ public class Game : MonoBehaviour
     {
         Time.timeScale = 1;
         _player.Reset();
+        _enemySpawner.Reset();
     }
 }

@@ -7,7 +7,12 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            JumpKeyPressed?.Invoke();
+        if(Time.timeScale != 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                JumpKeyPressed?.Invoke();
+            }
+        }
     }
 }
