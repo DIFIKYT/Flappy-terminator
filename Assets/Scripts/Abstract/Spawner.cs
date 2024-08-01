@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Spawner<T> : MonoBehaviour
+public abstract class Spawner : MonoBehaviour
 {
 
 }

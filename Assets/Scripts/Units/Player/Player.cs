@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMover))]
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour
     private PlayerInput _playerInput;
     private PlayerAnimation _playerAnimation;
 
+    public event Action GameOver;
+
     private void Awake()
     {
         _playerMover = GetComponent<PlayerMover>();
@@ -21,21 +24,31 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
+        _playerCollisionHandler.CollisionDetected += IdentifyCollision;
         _playerInput.JumpKeyPressed += Jump;
     }
 
     private void OnDisable()
     {
+        _playerCollisionHandler.CollisionDetected -= IdentifyCollision;
         _playerInput.JumpKeyPressed -= Jump;
     }
 
-    private void IdentifyCollision()
+    private void IdentifyCollision(Interactable interactable)
     {
+        if(interactable is PlayerBullet)
+            return;
 
+        GameOver?.Invoke();
     }
 
     private void Jump()
     {
         _playerMover.ChangeRotation();
+    }
+
+        public void Reset()
+    {
+        _playerMover.Reset();
     }
 }
