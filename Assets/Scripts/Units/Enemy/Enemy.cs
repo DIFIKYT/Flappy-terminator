@@ -3,7 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(EnemyCollisionHandler))]
 [RequireComponent(typeof(EnemyAnimation))]
-public class Enemy : MonoBehaviour
+public class Enemy : Character, IInteractable
 {
     private EnemyCollisionHandler _collisionHandler;
     private EnemyAnimation _enemyAnimation;
@@ -26,9 +26,9 @@ public class Enemy : MonoBehaviour
         _collisionHandler.CollisionDetected -= IdentifyCollision;
     }
 
-    private void IdentifyCollision(Interactable interactable)
+    private void IdentifyCollision(IInteractable interactable)
     {
-        if (interactable.TryGetComponent(out Remover remover))
+        if (interactable is Remover)
             CollisionRemoverDetected?.Invoke(this);
     }
 }

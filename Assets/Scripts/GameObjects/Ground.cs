@@ -1,4 +1,6 @@
-public class Ground : Interactable
+using UnityEngine;
+
+public class Ground : MonoBehaviour, IInteractable
 {
 
 }

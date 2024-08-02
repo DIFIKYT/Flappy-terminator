@@ -5,12 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerCollisionHandler))]
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(PlayerAnimation))]
-public class Player : MonoBehaviour
+[RequireComponent(typeof(PlayerShooter))]
+public class Player : Character
 {
     private PlayerMover _playerMover;
     private PlayerCollisionHandler _playerCollisionHandler;
     private PlayerInput _playerInput;
     private PlayerAnimation _playerAnimation;
+    private PlayerShooter _playerShooter;
 
     public event Action GameOver;
 
@@ -20,21 +22,24 @@ public class Player : MonoBehaviour
         _playerCollisionHandler = GetComponent<PlayerCollisionHandler>();
         _playerInput = GetComponent<PlayerInput>();
         _playerAnimation = GetComponent<PlayerAnimation>();
+        _playerShooter = GetComponent<PlayerShooter>();
     }
 
     private void OnEnable()
     {
         _playerCollisionHandler.CollisionDetected += IdentifyCollision;
-        _playerInput.JumpKeyPressed += Jump;
+        _playerInput.JumpButtonPressed += Jump;
+        _playerInput.ShootButtonPressed += Shoot;
     }
 
     private void OnDisable()
     {
         _playerCollisionHandler.CollisionDetected -= IdentifyCollision;
-        _playerInput.JumpKeyPressed -= Jump;
+        _playerInput.JumpButtonPressed -= Jump;
+        _playerInput.ShootButtonPressed -= Shoot;
     }
 
-    private void IdentifyCollision(Interactable interactable)
+    private void IdentifyCollision(IInteractable interactable)
     {
         if (interactable is PlayerBullet)
             return;
@@ -45,6 +50,11 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         _playerMover.ChangeRotation();
+    }
+
+    private void Shoot()
+    {
+        _playerShooter.Shoot(this);
     }
 
     public void Reset()

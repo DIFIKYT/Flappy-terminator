@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Bullet : Interactable
+public abstract class Bullet : MonoBehaviour, IInteractable
 {
     [SerializeField] private float _speed;
 

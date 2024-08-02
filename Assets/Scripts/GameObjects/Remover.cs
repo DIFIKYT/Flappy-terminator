@@ -1,4 +1,6 @@
-public class Remover : Interactable
+using UnityEngine;
+
+public class Remover : MonoBehaviour, IInteractable
 {
 
 }

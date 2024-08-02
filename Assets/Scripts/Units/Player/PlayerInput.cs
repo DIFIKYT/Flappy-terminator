@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    public event Action JumpKeyPressed;
+    public event Action JumpButtonPressed;
+    public event Action ShootButtonPressed;
 
     private void Update()
     {
@@ -11,7 +12,12 @@ public class PlayerInput : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                JumpKeyPressed?.Invoke();
+                JumpButtonPressed?.Invoke();
+            }
+
+            if(Input.GetKeyUp(KeyCode.Q))
+            {
+                ShootButtonPressed?.Invoke();
             }
         }
     }
