@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class EnemyShooter : MonoBehaviour
 {
-    private BulletSpawner _bulletSpawner;
+    private EnemyBulletSpawner _enemyBulletSpawner;
 
-    private void Awake()
+    public void SetBulletSpawner(EnemyBulletSpawner bulletSpawner)
     {
-        if (FindAnyObjectByType<BulletSpawner>() != null)
-            _bulletSpawner = FindAnyObjectByType<BulletSpawner>();
+        _enemyBulletSpawner = bulletSpawner;
     }
 
     public void Shoot(Enemy enemy)
     {
-        _bulletSpawner.GetBullet(enemy);
+        _enemyBulletSpawner.GetBullet(enemy);
     }
 }

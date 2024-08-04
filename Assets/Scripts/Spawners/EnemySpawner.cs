@@ -6,6 +6,7 @@ using UnityEngine.Pool;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private List<Enemy> _enemiesPrefabs;
+    [SerializeField] private EnemyBulletSpawner _bulletSpawner;
     [SerializeField] private float _spawnDelay;
     [SerializeField] private float _maxSpawnCoordinateY;
     [SerializeField] private float _minSpawnCoordinateY;
@@ -13,9 +14,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int _maxSize;
 
     private ObjectPool<Enemy> _pool;
+    private List<Enemy> _createdEnemies;
 
     private void Awake()
     {
+        _createdEnemies = new List<Enemy>();
+
         _pool = new ObjectPool<Enemy>(
             createFunc: CreateEnemy,
             actionOnGet: OnGetEnemy,
@@ -33,16 +37,20 @@ public class EnemySpawner : MonoBehaviour
 
     public void Reset()
     {
-        _pool.Clear();
+        foreach (Enemy enemy in _createdEnemies)
+            _pool.Release(enemy);
 
-        foreach (Enemy enemy in FindObjectsOfType<Enemy>())
-            OnDestroyEnemy(enemy);
+        _createdEnemies.Clear();
+        _pool.Clear();
     }
 
     private Enemy CreateEnemy()
     {
-        Enemy enemy = Instantiate(_enemiesPrefabs[Random.Range(0, _enemiesPrefabs.Count)], transform);
+        Enemy enemy = Instantiate(_enemiesPrefabs[Random.Range(0, _enemiesPrefabs.Count)]);
+        enemy.EnemyShooter.SetBulletSpawner(_bulletSpawner);
+        enemy.enabled = true;
         enemy.CollisionRemoverDetected += ReturnToPool;
+        _createdEnemies.Add(enemy);
         return enemy;
     }
 

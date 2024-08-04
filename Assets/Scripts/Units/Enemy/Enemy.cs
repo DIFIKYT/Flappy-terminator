@@ -16,6 +16,8 @@ public class Enemy : Character, IInteractable
 
     public event Action<Enemy> CollisionRemoverDetected;
 
+    public EnemyShooter EnemyShooter => _enemyShooter;
+
     private void Awake()
     {
         _collisionHandler = GetComponent<EnemyCollisionHandler>();

@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerShooter : MonoBehaviour
 {
-    [SerializeField] private BulletSpawner _bulletSpawner;
+    [SerializeField] private PlayerBulletSpawner _playerBulletSpawner;
 
     public void Shoot(Player player)
     {
-        _bulletSpawner.GetBullet(player);
+        _playerBulletSpawner.GetBullet(player);
     }
 }

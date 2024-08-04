@@ -1,11 +1,14 @@
+using System;
 using UnityEngine;
 
 public class PlayerBullet : Bullet
 {
+    public event Action<PlayerBullet> CollisionDetected;
+
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent(out Remover _) || other.TryGetComponent(out Enemy _))
-            NotifyCollision();
+            CollisionDetected?.Invoke(this);
     }
 
     protected override void Update()
