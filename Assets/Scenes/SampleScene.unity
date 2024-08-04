@@ -290,7 +290,7 @@ MonoBehaviour:
   - {fileID: -4032619968804878067, guid: 7acb0ed6edc82054788e76ac21c944c3, type: 3}
   - {fileID: -8083793030377110564, guid: 89970044ecb7a2340b41cd712a4319ac, type: 3}
   - {fileID: -765424700739373146, guid: 94440f59ae33eb145bf7f45c35a3a50e, type: 3}
-  _bulletSpawner: {fileID: 0}
+  _bulletSpawner: {fileID: 2097150263}
   _spawnDelay: 1
   _maxSpawnCoordinateY: 3
   _minSpawnCoordinateY: -3
