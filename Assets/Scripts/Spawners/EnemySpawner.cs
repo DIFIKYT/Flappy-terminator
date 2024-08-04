@@ -31,9 +31,17 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnCoroutine());
     }
 
+    public void Reset()
+    {
+        _pool.Clear();
+
+        foreach (Enemy enemy in FindObjectsOfType<Enemy>())
+            OnDestroyEnemy(enemy);
+    }
+
     private Enemy CreateEnemy()
     {
-        Enemy enemy = Instantiate(_enemiesPrefabs[Random.Range(0, _enemiesPrefabs.Count)]);
+        Enemy enemy = Instantiate(_enemiesPrefabs[Random.Range(0, _enemiesPrefabs.Count)], transform);
         enemy.CollisionRemoverDetected += ReturnToPool;
         return enemy;
     }
@@ -75,17 +83,6 @@ public class EnemySpawner : MonoBehaviour
                 _pool.Get();
 
             yield return spawnDelay;
-        }
-    }
-
-    public void Reset()
-    {
-        if (_pool != null)
-        {
-            _pool.Clear();
-
-            foreach (Enemy enemy in FindObjectsOfType<Enemy>())
-                OnDestroyEnemy(enemy);
         }
     }
 }

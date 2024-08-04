@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5625963242009368845}
   - component: {fileID: 2341740161218902446}
   - component: {fileID: 5715555520863401877}
+  - component: {fileID: 104712280348008333}
   - component: {fileID: -3234672754004940985}
   - component: {fileID: -2630075518487632227}
   m_Layer: 0
@@ -101,6 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cee92c2dad463e438be7b54533fc756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shootDelay: 3
+  _moveSpeed: 2
 --- !u!114 &2341740161218902446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +128,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2670345ff5dfc4085e8476b164d3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &104712280348008333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578434460499168359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b08c2f7c8ca074b9097987bcb9de2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletSpawner: {fileID: 0}
 --- !u!58 &-3234672754004940985
 CircleCollider2D:
   m_ObjectHideFlags: 0

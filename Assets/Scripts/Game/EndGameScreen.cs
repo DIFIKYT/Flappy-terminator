@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 public class EndGameScreen : Window
 {
@@ -12,14 +11,12 @@ public class EndGameScreen : Window
 
     public override void Close()
     {
-        Debug.Log("EndGame Close");
         gameObject.SetActive(false);
         ActionButton.interactable = false;
     }
 
     public override void Open()
     {
-        Debug.Log("EndGame Open");
         gameObject.SetActive(true);
         ActionButton.interactable = true;
     }
