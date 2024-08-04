@@ -4,7 +4,7 @@ public class PlayerBullet : Bullet
 {
     protected override void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out Remover remover) || other.TryGetComponent(out Enemy enemy))
+        if (other.TryGetComponent(out Remover _) || other.TryGetComponent(out Enemy _))
             NotifyCollision();
     }
 
