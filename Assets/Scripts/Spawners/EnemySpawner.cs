@@ -38,7 +38,12 @@ public class EnemySpawner : MonoBehaviour
     public void Reset()
     {
         foreach (Enemy enemy in _createdEnemies)
-            _pool.Release(enemy);
+        {
+            if (enemy.gameObject.activeSelf)
+            {
+                _pool.Release(enemy);
+            }
+        }
 
         _createdEnemies.Clear();
         _pool.Clear();

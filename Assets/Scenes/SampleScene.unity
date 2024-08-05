@@ -422,8 +422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1583497745}
-  _playerBulletSpawner: {fileID: 0}
-  _enemyBulletSpawner: {fileID: 0}
+  _playerBulletSpawner: {fileID: 599301006}
+  _enemyBulletSpawner: {fileID: 2097150263}
   _enemySpawner: {fileID: 494306748}
   _startScreen: {fileID: 1728678822}
   _endGameScreen: {fileID: 835738848}

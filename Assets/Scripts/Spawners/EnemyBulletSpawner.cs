@@ -9,7 +9,7 @@ public class EnemyBulletSpawner : MonoBehaviour
     [SerializeField] private int _maxSize;
 
     private ObjectPool<EnemyBullet> _pool;
-    private List<EnemyBullet> _createdBullets;
+    private List<EnemyBullet> _createdBullets = new List<EnemyBullet>();
 
     private void Awake()
     {
@@ -26,7 +26,12 @@ public class EnemyBulletSpawner : MonoBehaviour
     public void Reset()
     {
         foreach (EnemyBullet bullet in _createdBullets)
-            _pool.Release(bullet);
+        {
+            if (bullet.gameObject.activeSelf)
+            {
+                _pool.Release(bullet);
+            }
+        }
 
         _createdBullets.Clear();
         _pool.Clear();
