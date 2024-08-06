@@ -2,15 +2,11 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyCollisionHandler))]
-[RequireComponent(typeof(EnemyAnimation))]
-[RequireComponent(typeof(EnemyShooter))]
 public class Enemy : Character, IInteractable
 {
     [SerializeField] private float _shootDelay;
 
     private EnemyCollisionHandler _collisionHandler;
-    private EnemyAnimation _enemyAnimation;
     private EnemyShooter _enemyShooter;
 
     public event Action<Enemy> CollisionRemoverDetected;
@@ -20,7 +16,6 @@ public class Enemy : Character, IInteractable
     private void Awake()
     {
         _collisionHandler = GetComponent<EnemyCollisionHandler>();
-        _enemyAnimation = GetComponent<EnemyAnimation>();
         _enemyShooter = GetComponent<EnemyShooter>();
     }
 
@@ -28,11 +23,6 @@ public class Enemy : Character, IInteractable
     {
         _collisionHandler.CollisionDetected += IdentifyCollision;
         StartCoroutine(ShootCoroutine());
-    }
-
-    private void OnDisable()
-    {
-        _collisionHandler.CollisionDetected -= IdentifyCollision;
     }
 
     private void IdentifyCollision(IInteractable interactable)

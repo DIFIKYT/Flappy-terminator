@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Shooter : MonoBehaviour
+public class Shooter : MonoBehaviour
 {
 
 }

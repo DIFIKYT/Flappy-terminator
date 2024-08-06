@@ -72,6 +72,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnDestroyEnemy(Enemy enemy)
     {
+        _createdEnemies.Remove(enemy);
         enemy.CollisionRemoverDetected -= ReturnToPool;
         Destroy(enemy.gameObject);
     }

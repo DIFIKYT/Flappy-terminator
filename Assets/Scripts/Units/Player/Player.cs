@@ -1,18 +1,16 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerMover))]
-[RequireComponent(typeof(PlayerCollisionHandler))]
 [RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(PlayerAnimation))]
-[RequireComponent(typeof(PlayerShooter))]
 public class Player : Character
 {
     private PlayerMover _playerMover;
     private PlayerCollisionHandler _playerCollisionHandler;
     private PlayerInput _playerInput;
-    private PlayerAnimation _playerAnimation;
     private PlayerShooter _playerShooter;
+    private float _shootReloadTime = 2;
+    private bool _canShoot = true;
 
     public event Action GameOver;
 
@@ -21,7 +19,6 @@ public class Player : Character
         _playerMover = GetComponent<PlayerMover>();
         _playerCollisionHandler = GetComponent<PlayerCollisionHandler>();
         _playerInput = GetComponent<PlayerInput>();
-        _playerAnimation = GetComponent<PlayerAnimation>();
         _playerShooter = GetComponent<PlayerShooter>();
     }
 
@@ -39,6 +36,11 @@ public class Player : Character
         _playerInput.ShootButtonPressed -= Shoot;
     }
 
+    public void Reset()
+    {
+        _playerMover.Reset();
+    }
+
     private void IdentifyCollision(IInteractable interactable)
     {
         if (interactable is PlayerBullet)
@@ -54,11 +56,22 @@ public class Player : Character
 
     private void Shoot()
     {
-        _playerShooter.Shoot(this);
+        if (_canShoot)
+        {
+            _playerShooter.Shoot(this);
+            StartCoroutine(Reload());
+        }
     }
 
-    public void Reset()
+    private IEnumerator Reload()
     {
-        _playerMover.Reset();
+        var shootReloadTime = new WaitForSeconds(_shootReloadTime);
+        _canShoot = false;
+
+        while (true)
+        {
+            yield return shootReloadTime;
+            _canShoot = true;
+        }
     }
 }

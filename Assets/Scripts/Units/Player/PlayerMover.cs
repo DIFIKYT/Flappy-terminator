@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMover : MonoBehaviour
+public class PlayerMover : Mover
 {
     [SerializeField] private float _tapForce;
     [SerializeField] private float _speed;

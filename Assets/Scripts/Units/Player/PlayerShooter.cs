@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerShooter : MonoBehaviour
+public class PlayerShooter : Shooter
 {
     [SerializeField] private PlayerBulletSpawner _playerBulletSpawner;
 

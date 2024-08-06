@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyShooter : MonoBehaviour
+public class EnemyShooter : Shooter
 {
     private EnemyBulletSpawner _enemyBulletSpawner;
 
