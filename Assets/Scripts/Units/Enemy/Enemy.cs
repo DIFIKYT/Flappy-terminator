@@ -8,7 +8,6 @@ using UnityEngine;
 public class Enemy : Character, IInteractable
 {
     [SerializeField] private float _shootDelay;
-    [SerializeField] private float _moveSpeed;
 
     private EnemyCollisionHandler _collisionHandler;
     private EnemyAnimation _enemyAnimation;
@@ -36,11 +35,6 @@ public class Enemy : Character, IInteractable
         _collisionHandler.CollisionDetected -= IdentifyCollision;
     }
 
-    private void Update()
-    {
-        transform.Translate(Vector3.left * _moveSpeed * Time.deltaTime);
-    }
-
     private void IdentifyCollision(IInteractable interactable)
     {
         if (interactable is Remover || interactable is PlayerBullet)
@@ -49,12 +43,13 @@ public class Enemy : Character, IInteractable
 
     private IEnumerator ShootCoroutine()
     {
-        var _delay = new WaitForSeconds(_shootDelay);
+        var delay = new WaitForSeconds(_shootDelay);
+        yield return null;
 
         while (true)
         {
             _enemyShooter.Shoot(this);
-            yield return _delay;
+            yield return delay;
         }
     }
 }

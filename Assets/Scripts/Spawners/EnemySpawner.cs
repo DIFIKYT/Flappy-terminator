@@ -51,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Enemy CreateEnemy()
     {
-        Enemy enemy = Instantiate(_enemiesPrefabs[Random.Range(0, _enemiesPrefabs.Count)]);
+        Enemy enemy = Instantiate(_enemiesPrefabs[Random.Range(0, _enemiesPrefabs.Count)], transform);
         enemy.EnemyShooter.SetBulletSpawner(_bulletSpawner);
         enemy.enabled = true;
         enemy.CollisionRemoverDetected += ReturnToPool;

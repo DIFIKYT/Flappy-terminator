@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4019792062039849232}
   - component: {fileID: 8625145424698474536}
   - component: {fileID: 6455030365970299836}
+  - component: {fileID: -7379874778472688743}
   - component: {fileID: 7568970196021142103}
   - component: {fileID: -2096828577721547163}
   m_Layer: 0
@@ -103,7 +104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootDelay: 3
-  _moveSpeed: 2
 --- !u!114 &-4019792062039849232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +140,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b08c2f7c8ca074b9097987bcb9de2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7379874778472688743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079939770373613839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c5b2c250be10c46bccd821213cc463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 3
 --- !u!58 &7568970196021142103
 CircleCollider2D:
   m_ObjectHideFlags: 0
