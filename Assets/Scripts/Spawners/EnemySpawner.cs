@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private List<Enemy> _enemiesPrefabs;
-    [SerializeField] private EnemyBulletSpawner _bulletSpawner;
+    [SerializeField] private BulletSpawner<Bullet> _enemyBulletSpawner;
     [SerializeField] private float _spawnDelay;
     [SerializeField] private float _maxSpawnCoordinateY;
     [SerializeField] private float _minSpawnCoordinateY;
@@ -21,10 +21,10 @@ public class EnemySpawner : MonoBehaviour
         _createdEnemies = new List<Enemy>();
 
         _pool = new ObjectPool<Enemy>(
-            createFunc: CreateEnemy,
-            actionOnGet: OnGetEnemy,
-            actionOnRelease: OnReleaseEnemy,
-            actionOnDestroy: OnDestroyEnemy,
+            createFunc: Create,
+            actionOnGet: OnGet,
+            actionOnRelease: OnRelease,
+            actionOnDestroy: Destroy,
             collectionCheck: true,
             defaultCapacity: _defaultCapacity,
             maxSize: _maxSize);
@@ -49,28 +49,28 @@ public class EnemySpawner : MonoBehaviour
         _pool.Clear();
     }
 
-    private Enemy CreateEnemy()
+    private Enemy Create()
     {
         Enemy enemy = Instantiate(_enemiesPrefabs[Random.Range(0, _enemiesPrefabs.Count)], transform);
-        enemy.EnemyShooter.SetBulletSpawner(_bulletSpawner);
+        enemy.EnemyShooter.SetBulletSpawner(_enemyBulletSpawner);
         enemy.enabled = true;
         enemy.CollisionRemoverDetected += ReturnToPool;
         _createdEnemies.Add(enemy);
         return enemy;
     }
 
-    private void OnGetEnemy(Enemy enemy)
+    private void OnGet(Enemy enemy)
     {
         enemy.transform.position = GetSpawnPosition();
         enemy.gameObject.SetActive(true);
     }
 
-    private void OnReleaseEnemy(Enemy enemy)
+    private void OnRelease(Enemy enemy)
     {
         enemy.gameObject.SetActive(false);
     }
 
-    private void OnDestroyEnemy(Enemy enemy)
+    private void Destroy(Enemy enemy)
     {
         _createdEnemies.Remove(enemy);
         enemy.CollisionRemoverDetected -= ReturnToPool;

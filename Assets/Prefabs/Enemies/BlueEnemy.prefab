@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: -2630075518487632227}
   - component: {fileID: -3234672754004940985}
   - component: {fileID: 5625963242009368845}
-  - component: {fileID: 2341740161218902446}
   - component: {fileID: 104712280348008333}
   - component: {fileID: -8992821978069945338}
+  - component: {fileID: 7113358701270961715}
   m_Layer: 0
   m_Name: BlueEnemy
   m_TagString: Untagged
@@ -165,18 +165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootDelay: 3
---- !u!114 &2341740161218902446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578434460499168359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d59a06be05a39a944b08e714ce3f0db5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &104712280348008333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,3 +190,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 3
+--- !u!114 &7113358701270961715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578434460499168359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0374ba077db45439190a0ee3165a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

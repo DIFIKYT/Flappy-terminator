@@ -408,7 +408,7 @@ MonoBehaviour:
   - {fileID: -4032619968804878067, guid: 7acb0ed6edc82054788e76ac21c944c3, type: 3}
   - {fileID: -8083793030377110564, guid: 89970044ecb7a2340b41cd712a4319ac, type: 3}
   - {fileID: -765424700739373146, guid: 94440f59ae33eb145bf7f45c35a3a50e, type: 3}
-  _bulletSpawner: {fileID: 2097150263}
+  _enemyBulletSpawner: {fileID: 2097150263}
   _spawnDelay: 1
   _maxSpawnCoordinateY: 3
   _minSpawnCoordinateY: -3
@@ -672,7 +672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d28f664d2008d345a9fb3c5cd44475b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: -2074930252321233549, guid: 723bbd81e21d6d949b2c211ad9dfa48f, type: 3}
+  _bulletPrefab: {fileID: -3730317646903368822, guid: 723bbd81e21d6d949b2c211ad9dfa48f, type: 3}
   _defaultCapacity: 100
   _maxSize: 100
 --- !u!1 &835738846
@@ -1241,10 +1241,10 @@ GameObject:
   - component: {fileID: 1583497750}
   - component: {fileID: 1583497753}
   - component: {fileID: 1583497749}
-  - component: {fileID: 1583497748}
   - component: {fileID: 1583497747}
   - component: {fileID: 1583497745}
   - component: {fileID: 1583497754}
+  - component: {fileID: 1583497755}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1274,18 +1274,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a52d52486d78bf45910855999fdf9b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1583497748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583497744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e401b6cd5c1fb7d4fa4248e0b78380e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1583497749
@@ -1446,7 +1434,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2d532e2cbb1cb4b8320744e614d9a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerBulletSpawner: {fileID: 599301006}
+  _bulletSpawner: {fileID: 599301006}
+--- !u!114 &1583497755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583497744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0374ba077db45439190a0ee3165a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1601152781
 GameObject:
   m_ObjectHideFlags: 0
@@ -2187,7 +2187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901fe5475c95ae44b871f0e68207dbf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 2662552141894329541, guid: a35310b318fc71c49a47ec53c88177c3, type: 3}
+  _bulletPrefab: {fileID: -4026648978237835707, guid: a35310b318fc71c49a47ec53c88177c3, type: 3}
   _defaultCapacity: 100
   _maxSize: 100
 --- !u!1660057539 &9223372036854775807

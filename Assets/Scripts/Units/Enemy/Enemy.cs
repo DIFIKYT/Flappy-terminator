@@ -6,7 +6,7 @@ public class Enemy : Character, IInteractable
 {
     [SerializeField] private float _shootDelay;
 
-    private EnemyCollisionHandler _collisionHandler;
+    private CollisionHandler _collisionHandler;
     private EnemyShooter _enemyShooter;
 
     public event Action<Enemy> CollisionRemoverDetected;
@@ -15,7 +15,7 @@ public class Enemy : Character, IInteractable
 
     private void Awake()
     {
-        _collisionHandler = GetComponent<EnemyCollisionHandler>();
+        _collisionHandler = GetComponent<CollisionHandler>();
         _enemyShooter = GetComponent<EnemyShooter>();
     }
 

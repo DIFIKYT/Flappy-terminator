@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: -8430123493137926405}
   - component: {fileID: -8535689289933487868}
   - component: {fileID: -765424700739373146}
-  - component: {fileID: 6807618956155893183}
   - component: {fileID: 6750383358077244554}
   - component: {fileID: -2122181699587728859}
+  - component: {fileID: 4898246977030305335}
   m_Layer: 0
   m_Name: RedEnemy
   m_TagString: Untagged
@@ -165,18 +165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootDelay: 3
---- !u!114 &6807618956155893183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1045783634025124799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d59a06be05a39a944b08e714ce3f0db5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6750383358077244554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,3 +190,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 3
+--- !u!114 &4898246977030305335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045783634025124799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0374ba077db45439190a0ee3165a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

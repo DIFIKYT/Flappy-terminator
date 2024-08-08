@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1969942283829130469}
   - component: {fileID: 7002842521026037004}
   - component: {fileID: 398839842217791137}
-  - component: {fileID: -2074930252321233549}
+  - component: {fileID: -3730317646903368822}
   m_Layer: 0
   m_Name: PlayerBullet
   m_TagString: Untagged
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!114 &-2074930252321233549
+--- !u!114 &-3730317646903368822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,3 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  _moveRight: 1

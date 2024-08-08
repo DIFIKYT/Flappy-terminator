@@ -1,16 +1,7 @@
-using UnityEngine;
-
 public class EnemyShooter : Shooter
 {
-    private EnemyBulletSpawner _enemyBulletSpawner;
-
-    public void SetBulletSpawner(EnemyBulletSpawner bulletSpawner)
+    public void SetBulletSpawner(BulletSpawner<Bullet> bulletSpawner)
     {
-        _enemyBulletSpawner = bulletSpawner;
-    }
-
-    public void Shoot(Enemy enemy)
-    {
-        _enemyBulletSpawner.GetBullet(enemy);
+        _bulletSpawner = bulletSpawner;
     }
 }

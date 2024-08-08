@@ -2,11 +2,10 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerInput))]
 public class Player : Character
 {
     private PlayerMover _playerMover;
-    private PlayerCollisionHandler _playerCollisionHandler;
+    private CollisionHandler _collisionHandler;
     private PlayerInput _playerInput;
     private PlayerShooter _playerShooter;
     private float _shootReloadTime = 2;
@@ -17,21 +16,21 @@ public class Player : Character
     private void Awake()
     {
         _playerMover = GetComponent<PlayerMover>();
-        _playerCollisionHandler = GetComponent<PlayerCollisionHandler>();
+        _collisionHandler = GetComponent<CollisionHandler>();
         _playerInput = GetComponent<PlayerInput>();
         _playerShooter = GetComponent<PlayerShooter>();
     }
 
     private void OnEnable()
     {
-        _playerCollisionHandler.CollisionDetected += IdentifyCollision;
+        _collisionHandler.CollisionDetected += IdentifyCollision;
         _playerInput.JumpButtonPressed += Jump;
         _playerInput.ShootButtonPressed += Shoot;
     }
 
     private void OnDisable()
     {
-        _playerCollisionHandler.CollisionDetected -= IdentifyCollision;
+        _collisionHandler.CollisionDetected -= IdentifyCollision;
         _playerInput.JumpButtonPressed -= Jump;
         _playerInput.ShootButtonPressed -= Shoot;
     }

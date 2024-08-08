@@ -3,8 +3,8 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    [SerializeField] private PlayerBulletSpawner _playerBulletSpawner;
-    [SerializeField] private EnemyBulletSpawner _enemyBulletSpawner;
+    [SerializeField] private BulletSpawner<Bullet> _playerBulletSpawner;
+    [SerializeField] private BulletSpawner<Bullet> _enemyBulletSpawner;
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private StartScreen _startScreen;
     [SerializeField] private EndGameScreen _endGameScreen;
