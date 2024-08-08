@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMover : MonoBehaviour
+public class PlayerMover : Mover
 {
     [SerializeField] private float _tapForce;
     [SerializeField] private float _speed;

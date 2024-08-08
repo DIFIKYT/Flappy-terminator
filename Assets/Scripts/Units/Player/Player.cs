@@ -2,23 +2,25 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerInput))]
 public class Player : Character
 {
-    private PlayerMover _playerMover;
+    [SerializeField] private float _shootReloadTime = 1;
+
     private CollisionHandler _collisionHandler;
-    private PlayerInput _playerInput;
     private PlayerShooter _playerShooter;
-    private float _shootReloadTime = 2;
+    private PlayerMover _playerMover;
+    private PlayerInput _playerInput;
     private bool _canShoot = true;
 
     public event Action GameOver;
 
     private void Awake()
     {
-        _playerMover = GetComponent<PlayerMover>();
         _collisionHandler = GetComponent<CollisionHandler>();
-        _playerInput = GetComponent<PlayerInput>();
         _playerShooter = GetComponent<PlayerShooter>();
+        _playerMover = GetComponent<PlayerMover>();
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     private void OnEnable()
@@ -42,7 +44,7 @@ public class Player : Character
 
     private void IdentifyCollision(IInteractable interactable)
     {
-       GameOver?.Invoke();
+        GameOver?.Invoke();
     }
 
     private void Jump()
@@ -54,8 +56,8 @@ public class Player : Character
     {
         if (_canShoot)
         {
-            _playerShooter.Shoot(this);
             StartCoroutine(Reload());
+            _playerShooter.Shoot(this);
         }
     }
 
@@ -63,11 +65,7 @@ public class Player : Character
     {
         var shootReloadTime = new WaitForSeconds(_shootReloadTime);
         _canShoot = false;
-
-        while (true)
-        {
-            yield return shootReloadTime;
-            _canShoot = true;
-        }
+        yield return shootReloadTime;
+        _canShoot = true;
     }
 }

@@ -74,8 +74,6 @@ public abstract class BulletSpawner<T> : MonoBehaviour where T : Bullet
 
     private void ReturnToPool(Bullet bullet)
     {
-        //if (bullet is T tBullet)
-        //    _pool.Release(tBullet);
         _pool.Release((T)bullet);
     }
 }
