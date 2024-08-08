@@ -42,15 +42,12 @@ public class Player : Character
 
     private void IdentifyCollision(IInteractable interactable)
     {
-        if (interactable is PlayerBullet)
-            return;
-
-        GameOver?.Invoke();
+       GameOver?.Invoke();
     }
 
     private void Jump()
     {
-        _playerMover.ChangeRotation();
+        _playerMover.ChangeRotationAndspeed();
     }
 
     private void Shoot()

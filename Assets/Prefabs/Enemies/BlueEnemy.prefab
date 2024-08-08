@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 104712280348008333}
   - component: {fileID: -8992821978069945338}
   - component: {fileID: 7113358701270961715}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlueEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b08c2f7c8ca074b9097987bcb9de2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bulletSpawner: {fileID: 0}
 --- !u!114 &-8992821978069945338
 MonoBehaviour:
   m_ObjectHideFlags: 0

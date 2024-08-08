@@ -26,7 +26,7 @@ public class PlayerMover : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, _minRotation, _rotationSpeed * Time.deltaTime);
     }
 
-    public void ChangeRotation()
+    public void ChangeRotationAndspeed()
     {
         _rigidbody2D.velocity = new Vector2(_speed, _tapForce);
         transform.rotation = _maxRotation;
